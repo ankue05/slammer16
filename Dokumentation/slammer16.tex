@@ -1,0 +1,308 @@
+\documentclass[12pt,ngerman,pointlessnumbers, abstracton, headsepline]{scrreprt}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm}
+\pagestyle{plain}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{color}
+\usepackage{babel}
+\usepackage{array}
+\usepackage{varioref}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+\setstretch{1.2}
+
+\makeatletter
+
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+% verschieden Symbole, Zeichen wie (c), ¤
+\usepackage{textcomp,units}
+
+% Mehr Platz zwischen Tabelle und Untertitel
+\usepackage{caption}
+\captionsetup[table]{skip=10pt}
+
+%Kapitelzahl sehr groß
+\makeatletter% siehe De-TeX-FAQ 
+ \renewcommand*{\chapterformat}{% 
+   \begingroup% damit \unitlength-Änderung lokal bleibt 
+     \setlength{\unitlength}{1mm}% 
+     \begin{picture}(10,10)(0,5) 
+       \setlength{\fboxsep}{0pt} 
+       %\put(0,0){\framebox(20,40){}}% 
+       %\put(0,20){\makebox(20,20){\rule{20\unitlength}{20\unitlength}}}% 
+       \put(10,15){\line(1,0){\dimexpr 
+           \textwidth-20\unitlength\relax\@gobble}}% 
+       \put(0,0){\makebox(10,20)[r]{% 
+           \fontsize{28\unitlength}{28\unitlength}\selectfont\thechapter 
+           \kern-.05em% Ziffer in der Zeichenzelle nach rechts schieben 
+         }}% 
+       \put(10,15){\makebox(\dimexpr 
+           \textwidth-20\unitlength\relax\@gobble,\ht\strutbox\@gobble)[l]{% 
+             \ \normalsize\color{black}\chapapp~\thechapter\autodot 
+           }}% 
+     \end{picture} % <-- Leerzeichen ist hier beabsichtigt! 
+   \endgroup 
+}
+
+\usepackage{ %a4wide,
+            ellipsis, fixltx2e, mparhack,   %Fehlerkorrektur für Marginalien
+            booktabs, longtable             %schönere Tabellen
+}  
+
+\usepackage[automark]{scrpage2}
+%\automark[chapter]{chapter}
+\clearscrheadfoot
+\ohead{\\\headmark}
+\ihead{\includegraphics[scale=0.15]{logo.jpg}}%\pagemark}
+\ofoot[\pagemark]{\pagemark}
+
+
+%Kurzfassung und Abstract (englisch) auf eine Seite
+\renewenvironment{abstract}{
+    \@beginparpenalty\@lowpenalty
+      \begin{center}
+        \normalfont\sectfont\nobreak\abstractname
+        \@endparpenalty\@M
+      \end{center}
+}{
+    \par
+}
+
+
+
+% schönerer Blocksatz!!
+\usepackage{microtype}
+
+\usepackage{ifpdf} % part of the hyperref bundle
+\ifpdf % if pdflatex is used
+
+%set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}
+  {\usepackage[scaled=0.92]{helvet}
+    \usepackage{mathptmx}
+    \usepackage{courier} }
+\fi
+
+ % the pages of the TOC are numbered roman
+ % and a pdf-bookmark for the TOC is added
+ \pagenumbering{roman}
+ \let\myTOC\tableofcontents
+ \renewcommand\tableofcontents{
+   %\pdfbookmark[1]{Contents}{}
+   \myTOC
+   \clearpage
+   \pagenumbering{arabic}}
+
+%Bezeichungen anpassen
+%Babelpaket muß zuvor geladen werden
+%\usepackage[ngerman]{babel}
+\addto\captionsngerman{ 
+\renewcommand{\figurename}{Abb.}% 
+\renewcommand{\tablename}{Tab.}% 
+\renewcommand{\abstractname}{Kurzfassung}
+%\renewcommand{\nomname}{Abkürzungen}
+}
+
+% Alle Querverweise und URLs als Link darstellen
+% In der PDF-Ausgabe
+ \usepackage[colorlinks=true, bookmarks, bookmarksnumbered, bookmarksopen, bookmarksopenlevel=1,
+  linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,
+  pdfpagelayout=OneColumn, pdfnewwindow=true,
+  pdfstartview=XYZ, plainpages=false, pdfpagelabels,
+  pdfauthor={LyX Team}, pdftex,
+  pdftitle={LyX's Figure, Table, Floats, Notes, and Boxes manual},
+  pdfsubject={LyX-documentation about figures, tables, floats, notes, and boxes},
+  pdfkeywords={LyX, Tables, Figures, Floats, Boxes, Notes}]{hyperref}
+
+%mehr Platz zwischen Überschrift und Tabelle
+\newcommand{\@ldtable}{}
+\let\@ldtable\table
+\renewcommand{\table}{ %
+                 \setlength{\@tempdima}{\abovecaptionskip} %
+                 \setlength{\abovecaptionskip}{\belowcaptionskip} %
+                 \setlength{\belowcaptionskip}{\@tempdima} %
+                 \@ldtable}
+
+%In dieser Arbeit wird auf die Nomenklatur als Abkürzungsverzeichnis verzichtet. Bei Wunsch wieder aktivieren.
+%Nomenklatur als Abkürzungsverzeichnis verwenden
+%\renewcommand{\nomname}{Abkürzungsverzeichnis}
+%\renewcommand{\nomlabelwidth}{20mm}
+
+%Nomenklatur als Glossar verwenden
+%Nur Noetig wenn auch Glossar verwendet wird.
+\renewcommand{\nomname}{Glossar}
+
+%Farbe für Programmcode festlegen
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+
+\AtBeginDocument{
+  \def\labelitemiii{\(\circ\)}
+}
+
+\makeatother
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Listing}
+
+\begin{document}
+\noindent \titlepage
+
+\noindent \begin{center}
+\begin{tabular}{cc}
+ & \multirow{0}{*}{\includegraphics[width=5cm]{images/hn_niederrhein_logo_big}}\tabularnewline
+{\large{}Fachbereich Elektrotechnik und Informatik}\hspace{1.5cm} & \tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+\end{tabular}
+\par\end{center}
+
+\noindent \vspace{7cm}
+
+
+\noindent \begin{flushleft}
+\textbf{\Large{}Projektfach WS 16/17}
+\par\end{flushleft}{\Large \par}
+
+\noindent \begin{flushleft}
+{\large{}SLAM - Simultaneous Localization and Mapping}
+\par\end{flushleft}{\large \par}
+
+\noindent \begin{flushleft}
+{\Large{}\vspace{1.5cm}
+}
+\par\end{flushleft}{\Large \par}
+
+\begin{tabular}{ll}
+eingereicht von:\hspace{1cm} & Andre Kürten\tabularnewline
+ & Matrikelnummer: 111111\tabularnewline
+ & Sebastian Schilling\tabularnewline
+ & Matrikelnummer: 222222\tabularnewline
+ & \tabularnewline
+betreut durch: & Prof. Dr.-Ing. Thomas Nitsche\tabularnewline
+ & Hochschule Niederrhein\tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+ & \tabularnewline
+\multicolumn{2}{l}{Krefeld, der \today}\tabularnewline
+\end{tabular}
+
+\newpage{}
+
+~
+
+\vspace{17.1mm}
+
+
+\noindent \begin{flushleft}
+\textbf{\huge{}Kurzfassung}
+\par\end{flushleft}{\huge \par}
+
+Dieser Bericht fasst die Arbeiten und Ergebnisse des Wahlprojektfaches
+des Masterstudiengangs Informatik der Hochschule Niederrhein zusammen.
+Ziel des Projektes ist die Erstellung einer Umgebungskarte eines Roboters in einer für ihn unbekannten Gegend. Mithilfe dieser generierten Karte, soll es dem Roboter möglich sein zu navigieren. Die oben genannten Anforderung lassen sich durch das SLAM-Problem beschreiben. Für das Projekt wurden verschiedenen Algorithmen ausprobiert und miteinander verglichen.
+
+
+\newpage{}
+
+\tableofcontents{}
+
+\newpage{}
+
+
+
+\pagenumbering{roman}
+\setcounter{page}{4}
+
+\listoffigures
+
+
+\newpage{}
+
+\listoftables
+
+
+\newpage{}
+
+\pagenumbering{arabic}
+
+
+\chapter{Einführung}
+
+
+\section{Problemstellung}
+
+Segway..
+
+
+\section{Was ist SLAM?}
+
+In der Robotik steht das Akronym SLAM für Simultanesous Localization
+and Mapping. Dabei beschreibt SLAM das Problem eines Roboters, eine Karte von seiner unbekannten Umgebung zu erstellen und gleichzeitig mit dieser zu navigieren.
+
+
+\section{Partikel Filter}
+
+
+\chapter{Datenformate}
+
+
+\chapter{Algorithmen}
+
+\section{DPSlam}
+
+\section{TinySlam}
+
+\section{MRPT}
+
+\section{Sonstige}
+
+
+
+
+
+\chapter{Ausblick}
+
+
+
+
+
+
+% Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
+\clearpage
+\phantomsection
+% Die folgende Zeile sorgt dafuer, dass der Glossar im Inhaltsverzeichnis angezeigt wird.
+\addcontentsline{toc}{chapter}{Glossar}
+
+\nomenclature{APT}{Advanced Packaging Tool (kurz. APT) ist ein Paketverwaltungssystem das z.B. bei Debian und Ubuntu eingesetzt wird. Das Paketverwaltungssystem stellt einen Großteil der für das Betriebssystem verfügbaren Programme und Erweiterungen bereit. Diese können durch den Benutzer meist in der Befehlszeile oder über eine grafische Oberfläche installiert und konfiguriert werden. }\nomenclature{API}{Application Programming Interface (kurz API) ist eine Programmierschnittstelle die eine Anbindung von Außen an ein bestehendes System bietet. Die Schnittstelle wird vom Hersteller der Software zur Verfügung gestellt um Dritten die Möglichkeit eines Addons oder einer Erweiterung zu geben. Die Schnittstelle definiert dabei ein Standardformat und Standardbefehle.}
+
+\settowidth{\nomlabelwidth}{APT}
+\printnomenclature{}
+
+% Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
+\clearpage
+\phantomsection
+
+
+
+\bibliographystyle{bibtex-daten/unsrtdin}
+\addcontentsline{toc}{chapter}{\bibname}\nocite{*}
+\bibliography{bibtex-daten/bachelorarbeit-info}
+
+\end{document}
