@@ -2,11 +2,13 @@
 \contentsline {chapter}{\numberline {1}Einf\"uhrung}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Problemstellung}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Was ist SLAM?}{1}{section.1.2}
-\contentsline {section}{\numberline {1.3}Partikel Filter}{1}{section.1.3}
-\contentsline {chapter}{\numberline {2}Datenformate}{2}{chapter.2}
-\contentsline {chapter}{\numberline {3}Algorithmen}{3}{chapter.3}
-\contentsline {section}{\numberline {3.1}DPSlam}{3}{section.3.1}
-\contentsline {section}{\numberline {3.2}TinySlam}{3}{section.3.2}
-\contentsline {section}{\numberline {3.3}MRPT}{3}{section.3.3}
-\contentsline {section}{\numberline {3.4}Sonstige}{3}{section.3.4}
-\contentsline {chapter}{\numberline {4}Ausblick}{4}{chapter.4}
+\contentsline {section}{\numberline {1.3}Bayes Filter}{1}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Kalman Filter}{2}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Partikel Filter}{2}{subsection.1.3.2}
+\contentsline {chapter}{\numberline {2}Datenformate}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Algorithmen}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}DPSlam}{4}{section.3.1}
+\contentsline {section}{\numberline {3.2}TinySlam}{4}{section.3.2}
+\contentsline {section}{\numberline {3.3}MRPT}{4}{section.3.3}
+\contentsline {section}{\numberline {3.4}Sonstige}{4}{section.3.4}
+\contentsline {chapter}{\numberline {4}Ausblick}{5}{chapter.4}

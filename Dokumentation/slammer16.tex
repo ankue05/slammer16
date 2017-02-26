@@ -58,7 +58,7 @@
            }}% 
      \end{picture} % <-- Leerzeichen ist hier beabsichtigt! 
    \endgroup 
-}
+}                                          
 
 \usepackage{ %a4wide,
             ellipsis, fixltx2e, mparhack,   %Fehlerkorrektur für Marginalien
@@ -247,18 +247,29 @@ Ziel des Projektes ist die Erstellung einer Umgebungskarte eines Roboters in ein
 
 
 \section{Problemstellung}
-
-Segway..
-
-
+ Schreiben wir hier jetzt noch was?!
+ 
 \section{Was ist SLAM?}
 
 In der Robotik steht das Akronym SLAM für Simultanesous Localization
-and Mapping. Dabei beschreibt SLAM das Problem eines Roboters, eine Karte von seiner unbekannten Umgebung zu erstellen und gleichzeitig mit dieser zu navigieren.
+and Mapping. Dabei beschreibt SLAM das Problem eines Roboters, eine Karte von seiner unbekannten Umgebung zu erstellen und gleichzeitig mit dieser anhand von Sensordaten zu navigieren (auch SLAM-Problem genannt).
+Um das Problem zu lösen werden in der Regel probabilistische und nicht deterministische Ansätze verfolgt. Zur Lösung eines SLAM-Problems müssen u.a. folgende Unterprobleme gelöst werden:
+\begin{itemize}
+	\item Positionsgewinnung der Landmarks
+	\item Zuordnung von Sensordaten zu den Landmarks
+	\item Entscheidung ob Sensordaten einen bereits verfassten Landmarks gehören.
+	\item Minimierung des entstandenen Fehlers
+\end{itemize}
+Konkrete Ansätze zur Lösung des Problems werden Bayes Filter und Partikel Filter als probabilistische Modelle verwendet.
 
+\section{Bayes Filter}
+Im Allgemeinen ist ein Bayes - Filter ein probabilistischer Ansatz um eine unbekannte Wahrscheinlichkeitsdichtefunktion rekusiv über die Zeit hinweg zu bestimmen.  
+In der Informatik und der Robotik ist ein Bayes - Filter ein Verfahren verschiedene, Wahrscheinlichkeiten für die Position und Orientierung eines Roboters zu berechnen, befolgt von einer Aktualisierung der wahrscheinlichsten Position innerhalb einer Karte. Bayes - Filter sind im SLAM-kontext in Kalman- und Partikel - Filter unterschieden. 
 
-\section{Partikel Filter}
-
+\subsection{Kalman Filter}
+Andre
+\subsection{Partikel Filter}
+Sebastian
 
 \chapter{Datenformate}
 
