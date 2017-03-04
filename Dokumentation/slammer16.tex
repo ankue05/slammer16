@@ -193,7 +193,7 @@
 eingereicht von:\hspace{1cm} & Andre Kürten\tabularnewline
  & Matrikelnummer: 838311\tabularnewline
  & Sebastian Schilling\tabularnewline
- & Matrikelnummer: 222222\tabularnewline
+ & Matrikelnummer: 971726\tabularnewline
  & \tabularnewline
 betreut durch: & Prof. Dr.-Ing. Thomas Nitsche\tabularnewline
  & Hochschule Niederrhein\tabularnewline
@@ -242,12 +242,8 @@ Ziel des Projektes ist die Erstellung einer Umgebungskarte eines Roboters in ein
 
 \pagenumbering{arabic}
 
-
+%============================================ Einführung ============================================
 \chapter{Einführung}
-
-
-\section{Problemstellung}
- Schreiben wir hier jetzt noch was?!
  
 \section{Was ist SLAM?}
 
@@ -268,12 +264,35 @@ In der Informatik und der Robotik ist ein Bayes - Filter ein Verfahren verschied
 
 \subsection{Kalman Filter}
 Andre
+
 \subsection{Partikel Filter}
-Sebastian
+Der Partikel Filter wird auch Sequenzielle Monte-Carlo-Methode (SMC-Methode) genannt. Ziel ist es, die gerade aktuelle, aber unbekannte Wahrscheinlichkeitsdichte auf den Zustandsraum zu schätzen. Daraus kann dann der wahrscheinlichste Systemzustand abgeleitet werden.\\
+Häufig ist es der Fall, dass der Ort von Objekten zu Beginn nicht bekannt ist und diese erst durch Messungen ermittelt werden müssen. Die Messungen werden aber immer eine gewisse Fehlerrate vorweisen. Dh. die Messungen geben den wahren Zustand nicht korrekt wieder. Es ist aber möglich, anhand der Messungen den Zustand zu schätzen.\\
+Während der Kalman Filter von einer normalverteilten Störgröße ausgeht, geht der Partikel Filter von einer nichtlinearen Störgröße aus. Hier können mehrere Maxima auftreten und den Systemzustand wider spiegeln. \par
+Beim Partikel Filter wird eine Wolke von sogenannten Partikeln produziert, die im Anfangszustand gleichverteilt auf der Karte auftreten. Jeder Partikel beschreibt einen Zustand, der aus einem Gewicht und einem Punkt auf der Karte besteht. Der Partikel Filter besteht aus vier Schritten:
 
+\begin{enumerate}
+	\item Fortschreiten (Bewegung)
+	\item Addieren eines Fehlers auf die Zustände
+	\item Messen und gewichten der Partikel
+	\item Resampeln
+\end{enumerate}
+
+Der erste Schritt ist das Fortschreiten des Partikels. Diese Schätzung wird für jeden Partikel ausgeführt. Im zweiten Schritt wird ein künstlich ausgewählter Fehler auf jede Bewegung aus Schritt eins hinzugefügt. Dies ist notwendig um das Systemrauschen, das bei den realen Messwerten auftritt, nachzubilden. Im dritten Schritt wird überprüft, wie realistisch die einzelnen Partikel zu den realen Werten passen. Passen sie sehr gut, so erhalten sie ein hohes Gewicht. Ansonsten wird ihnen ein niedriges Gewicht zugewiesen. Im letzten Schritt, dem Resampling, findet eine Selektierung der Partikel statt. Partikel mit hohen Gewichten werden behalten und Partikel mit niedrigen Gewichten werden verworfen. \par
+
+Der Partikel Filter kann auch dazu verwendet werden, die Position eines Roboters mit gegebener Karte zu ermitteln. Dazu werden auf der gestellten Karte die Partikel im Anfangszustand gleichverteilt verteilt. Danach wird überprüft, ob die Messungen des Roboters mit der Karte übereinstimmen. Ist die der Fall, so werden diese Partikel hoch gewichtet. Im nächsten Schritt werden von den hohen gewichteten Partikel mehr Partikel gestreut. Die weniger gewichteten Partikel werden verworfen oder von dort aus weniger Partikel gestreut.\\
+Nach wenigen Schritten kann eine relative gute Positionsbestimmung trotz verrauschten Messwerten erfolgen.
+
+%============================================ Datenformate ============================================
 \chapter{Datenformate}
+Es gibt verschiedene Möglichkeiten einen Roboter mittels Sensoren zu versehen. Unter anderem gibt es 2D-Laser, 3D-Laser oder auch stereo Kameras. Wir haben uns im Rahmen des Projektes nur mit 2D-Laser Daten auseinander gesetzt und stellen hier die gängigsten Datenformate vor. Für die Algorithmen haben wir ein eigenes Datenformat, abgeleitet von den bestehenden, benutzt. 
 
+\section{Eigenes Datenformat}
+Während unseren Experimenten haben wir uns auf ein eigenes Datenformat geeinigt. Jede Zeile stellt einen Scandurchlauf dar. Die erste Zahl gibt die Anzahl der darauf folgenden Messwerte wieder. Nach den Messwerten folgt die Odometrie mit 3 Werten: 
 
+\section{Beispieldaten}
+Einige Sensor Beispieldaten können von folgender Webseite heruntergeladen werden:  \url{http://www.mrpt.org/robotics_datasets}
+%============================================ Algorithmen ============================================
 \chapter{Algorithmen}
 
 \section{DPSlam}
@@ -287,7 +306,7 @@ Sebastian
 
 
 
-
+%============================================ Ausblick ============================================
 \chapter{Ausblick}
 
 
