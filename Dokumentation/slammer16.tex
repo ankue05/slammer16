@@ -260,10 +260,22 @@ Konkrete Ansätze zur Lösung des Problems werden Bayes Filter und Partikel Filter
 
 \section{Bayes Filter}
 Im Allgemeinen ist ein Bayes - Filter ein probabilistischer Ansatz um eine unbekannte Wahrscheinlichkeitsdichtefunktion rekusiv über die Zeit hinweg zu bestimmen.  
-In der Informatik und der Robotik ist ein Bayes - Filter ein Verfahren verschiedene, Wahrscheinlichkeiten für die Position und Orientierung eines Roboters zu berechnen, befolgt von einer Aktualisierung der wahrscheinlichsten Position innerhalb einer Karte. Bayes - Filter sind im SLAM-kontext in Kalman- und Partikel - Filter unterschieden. 
+In der Informatik und der Robotik ist ein Bayes - Filter ein Verfahren verschiedene, Wahrscheinlichkeiten für die Position und Orientierung eines Roboters zu berechnen, befolgt von einer Aktualisierung der wahrscheinlichsten Position innerhalb einer Karte. Im SLAM-Kontext wird zwischen Kalman- und Partikel - Filter unterschieden. 
 
 \subsection{Kalman Filter}
-Andre
+Vereinfacht kann man sagen dass das Kalman - Filter die Störungen welche durch die Messgeräte verursacht werden entfernt. Das Filter bestimmt den aktuellen Systemzustand, rekursiv anhand der vorhergehenden gestörten Messungen. Für lineare Systeme kann man sich auf das Kalman - Filter beschränken. In der Realität sind die Systeme meist jedoch nichtlinear.Um dieses Problem dennoch in den Griff zu bekommen benutzt man den \textit{Extended - Kalman - Filter} (EKF) welcher auch für nichtlineare Systeme funktioniert.
+Das Filter besteht generell aus zwei Schritten:
+\begin{enumerate}
+	\item Vorhersagen
+	\item Korrigieren
+\end{enumerate}
+Beim Vorhersagen wird eine Annahme über den Systemzustand zum nächsten Zeitpunkt, anhand des bekannten Verhaltens des Systems getroffen. Bei der Korrektur wird der tatsächliche Systemzustand anhand der Messvorrichtung bestimmt, und anschließend den Zustand anhand der Abweichung der beiden Zustände korrigiert.
+Die nachstehende Abbildung zeigt exemplarisch den Kalman - Filter Algorithmus.
+\begin{figure}[h]
+	\includegraphics[scale=0.4]{images/kalman.png}
+	\caption{Kalman - Filter - Algorithmus}
+\end{figure}
+Durch den rekusiven ansatz ist der Kalman - Filter auch für Echtzeitsysteme geeignet.
 
 \subsection{Partikel Filter}
 Der Partikel Filter wird auch Sequenzielle Monte-Carlo-Methode (SMC-Methode) genannt. Ziel ist es, die gerade aktuelle, aber unbekannte Wahrscheinlichkeitsdichte auf den Zustandsraum zu schätzen. Daraus kann dann der wahrscheinlichste Systemzustand abgeleitet werden.\\
