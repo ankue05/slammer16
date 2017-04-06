@@ -315,10 +315,31 @@ Während unseren Experimenten haben wir festgestellt, dass viele Beispieldaten ei
 Einige Sensor Beispieldaten können von folgender Webseite heruntergeladen werden:  \url{http://www.mrpt.org/robotics_datasets}
 %============================================ Algorithmen ============================================
 \chapter{Algorithmen}
+Da es so schien als gäbe es eine große Auswahl bereits fertig implementiert und getestete  Algorithmen und Frameworks haben wir uns nach Absprache mit dem Betreuer dafür entschieden uns auf diese fertige Software zu beschränken. Ebenfalls haben wir uns auf Entfernungsdaten aus einem Laserscanner beschränkt, und etwaige Bildverarbeitung außen vor gelassen. Anschließen ist die Software aufgelistet bei denen wir die meisten Erfolge verbuchen konnten.
 
 \section{DPSlam}
 
-\section{TinySlam}
+\section{tinySLAM}
+tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist, und die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter https://openslam.org/tinyslam.html .
+Nach der Kompilierung der Software versuchten wir als erstes das mitgelieferte Testprogramm mit den dazugehörigen Testdaten. Das Testprogramm lieferte erste vielversprechende Ergebnisse. Neben einer Animation (Abb. 3.1) zur Laufzeit, stellt es nach Abschluss auch fertige Karten des Raumes (Abb.3.2 / 3.3) zur Verfügung.
+In der \ref{tinyLive} kann man grafisch erkennen wie der Algorithmus arbeitet. Von seinem Startpunkt aus fährt er einmal im Kreis und erfasst alles soweit wie er kann. Im nächsten Durchlauf wird der Bereich untersucht wo potenziell keine Hindernisse erfasst wurden, und fährt erneut im Kreis.
+Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten Datensatz testen. Um das zu bewerkstelligen schauten wir uns zuerst die verwendeten Daten einmal an. Dabei stellten wir fest das wir bis auf den ersten Wert einer jeden Zeile gar keinen Wert, den zuvor ausgemachten Werten (Odometrie, Winkel,Entfernungsdaten etc.) zuordnen konnten. Zudem ist die Anzahl der Werte pro Zeile auch stark erhöht und unterliegen teilweise sehr großen Schwankungen von \(2.4 \times 10^{-3}\) bis \(1.2 \times 10^{4}\). Ohne zusätzlich Informationen zu den verwendeten Testdaten war es uns nicht möglich diese zu deuten. Nichts desto trotz haben wir einfach einmal geschaut was denn passiert wenn wir die Software mit anderen Datensätze füttern. 
+\begin{figure}[h]
+	\includegraphics[scale=0.34]{images/tiny_live1.png}
+	\includegraphics[scale=0.34]{images/tiny_live2.png}
+	\includegraphics[scale=0.34]{images/tiny_live3.png}
+	\caption{Bildausschnitte während der Roboteranimation zur Laufzeit}
+	\label{tinyLive}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics[scale=0.15]{images/exp1_loop0_final.png}
+	\caption{Erste Karte nach erstem Durchlauf des Roboters}
+\end{figure}
+\begin{figure}[h]
+	\includegraphics[scale=0.15]{images/exp1_loop1_final.png}
+		\caption{Komplette Karte nach zweitem Durchlauf des Roboters}
+\end{figure}
 
 \section{MRPT}
 
