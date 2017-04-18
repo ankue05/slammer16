@@ -320,10 +320,11 @@ Da es so schien als gäbe es eine große Auswahl bereits fertig implementiert und 
 \section{DPSlam}
 
 \section{tinySLAM}
-tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist, und die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter https://openslam.org/tinyslam.html .
+tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist, und die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter https://openslam.org/tinyslam.html.
+\\
 Nach der Kompilierung der Software versuchten wir als erstes das mitgelieferte Testprogramm mit den dazugehörigen Testdaten. Das Testprogramm lieferte erste vielversprechende Ergebnisse. Neben einer Animation (Abb. 3.1) zur Laufzeit, stellt es nach Abschluss auch fertige Karten des Raumes (Abb.3.2 / 3.3) zur Verfügung.
 In der \ref{tinyLive} kann man grafisch erkennen wie der Algorithmus arbeitet. Von seinem Startpunkt aus fährt er einmal im Kreis und erfasst alles soweit wie er kann. Im nächsten Durchlauf wird der Bereich untersucht wo potenziell keine Hindernisse erfasst wurden, und fährt erneut im Kreis.
-Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten Datensatz testen. Um das zu bewerkstelligen schauten wir uns zuerst die verwendeten Daten einmal an. Dabei stellten wir fest das wir bis auf den ersten Wert einer jeden Zeile gar keinen Wert, den zuvor ausgemachten Werten (Odometrie, Winkel,Entfernungsdaten etc.) zuordnen konnten. Zudem ist die Anzahl der Werte pro Zeile auch stark erhöht und unterliegen teilweise sehr großen Schwankungen von \(2.4 \times 10^{-3}\) bis \(1.2 \times 10^{4}\). Ohne zusätzlich Informationen zu den verwendeten Testdaten war es uns nicht möglich diese zu deuten. Nichts desto trotz haben wir einfach einmal geschaut was denn passiert wenn wir die Software mit anderen Datensätze füttern. 
+Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten Datensatz testen. Um das zu bewerkstelligen schauten wir uns zuerst die verwendeten Daten einmal an.\\ Dabei stellten wir fest das wir bis auf den ersten Wert einer jeden Zeile gar keinen Wert, den zuvor ausgemachten Werten (Odometrie, Winkel,Entfernungsdaten etc.) zuordnen konnten. Zudem ist die Anzahl der Werte pro Zeile auch stark erhöht und unterliegen teilweise sehr großen Schwankungen von \(2.4 \times 10^{-3}\) bis \(1.2 \times 10^{4}\). 
 \begin{figure}[h]
 	\includegraphics[scale=0.34]{images/tiny_live1.png}
 	\includegraphics[scale=0.34]{images/tiny_live2.png}
@@ -331,6 +332,9 @@ Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten
 	\caption{Bildausschnitte während der Roboteranimation zur Laufzeit}
 	\label{tinyLive}
 \end{figure}
+Ohne zusätzlich Informationen zu den verwendeten Testdaten war es uns nicht möglich diese zu deuten. Nichts desto trotz haben wir einfach einmal geschaut was denn passiert wenn wir die Software mit anderen Datensätze (Abb. 2.1) füttern.
+Die Software lief im Gegensatz aller Erwartungen mit den andren Testdaten ohne Fehlermeldungen durch. Allerdings ohne Animation zur Laufzeit und fehlerhaften Endresultaten, was schon erahnen lässt, das die Testdaten nicht mit der Software kompatibel ist. Es scheint auf den Bilder so, als würde sich der Roboter nicht von der Stelle bewegen. Nach genauerem Vergleich mit den neuen Testdaten und den Daten welche bei tinySLAM an Bord waren, fiel uns auf das keine Informationen zur Odometrie und Ausrichtung des Roboters in den Daten vorhanden war. Das fehlen dieser Information, lässt daraus schließen das diese Information aus den Daten zur Laufzeit berechnet werden. Da wir aber auch keine Information über die Ursprungsdaten haben, war es uns auch mit Hilfe des Quellcodes nicht möglich die Berechnung dieser Information nachzuvollziehen.
+
 
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp1_loop0_final.png}
@@ -339,6 +343,15 @@ Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp1_loop1_final.png}
 		\caption{Komplette Karte nach zweitem Durchlauf des Roboters}
+\end{figure}
+
+\begin{figure}[h]
+	\includegraphics[scale=0.15]{images/exp2_loop0_final.png}
+	\caption{Erste Karte nach erstem Durchlauf des Roboters (neue Daten)}
+\end{figure}
+\begin{figure}[h]
+	\includegraphics[scale=0.15]{images/exp2_loop1_final.png}
+	\caption{Komplette Karte nach zweitem Durchlauf des Roboters(neue Daten)}
 \end{figure}
 
 \section{MRPT}
