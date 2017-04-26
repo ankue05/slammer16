@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.8)  18 APR 2017 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.3.8)  26 APR 2017 16:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -858,7 +858,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 167.
 
-<images/hn_niederrhein_logo_big.png, id=60, 144.54pt x 39.5076pt>
+<images/hn_niederrhein_logo_big.png, id=72, 144.54pt x 39.5076pt>
 File: images/hn_niederrhein_logo_big.png Graphic file (type png)
 
 <use images/hn_niederrhein_logo_big.png>
@@ -1002,7 +1002,7 @@ Package babel Info: Redefining ngerman shorthand "~
  [1
 
 ]
-<images/kalman.png, id=122, 792.9625pt x 475.7775pt>
+<images/kalman.png, id=137, 792.9625pt x 475.7775pt>
 File: images/kalman.png Graphic file (type png)
  <use images/kalman.png>
 Package pdftex.def Info: images/kalman.png used on input line 275.
@@ -1094,21 +1094,21 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 322.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 322.
-<images/tiny_live1.png, id=157, 770.88pt x 796.9775pt>
+<images/tiny_live1.png, id=172, 770.88pt x 796.9775pt>
 File: images/tiny_live1.png Graphic file (type png)
 
 <use images/tiny_live1.png>
 Package pdftex.def Info: images/tiny_live1.png used on input line 329.
 (pdftex.def)             Requested size: 262.09573pt x 270.96875pt.
 
-<images/tiny_live2.png, id=158, 769.87625pt x 790.955pt>
+<images/tiny_live2.png, id=173, 769.87625pt x 790.955pt>
 File: images/tiny_live2.png Graphic file (type png)
 
 <use images/tiny_live2.png>
 Package pdftex.def Info: images/tiny_live2.png used on input line 330.
 (pdftex.def)             Requested size: 261.75446pt x 268.92114pt.
 
-<images/tiny_live3.png, id=159, 770.88pt x 797.98125pt>
+<images/tiny_live3.png, id=174, 770.88pt x 797.98125pt>
 File: images/tiny_live3.png Graphic file (type png)
 
 <use images/tiny_live3.png>
@@ -1132,7 +1132,7 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 337.
 [6
 
-] <images/exp1_loop0_final.png, id=168, 2055.68pt x 2055.68pt>
+] <images/exp1_loop0_final.png, id=183, 2055.68pt x 2055.68pt>
 File: images/exp1_loop0_final.png Graphic file (type png)
 
 <use images/exp1_loop0_final.png>
@@ -1142,7 +1142,7 @@ Package pdftex.def Info: images/exp1_loop0_final.png used on input line 340.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/exp1_loop1_final.png, id=169, 2055.68pt x 2055.68pt>
+<images/exp1_loop1_final.png, id=184, 2055.68pt x 2055.68pt>
 File: images/exp1_loop1_final.png Graphic file (type png)
 
 <use images/exp1_loop1_final.png>
@@ -1152,7 +1152,7 @@ Package pdftex.def Info: images/exp1_loop1_final.png used on input line 344.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/exp2_loop0_final.png, id=170, 2055.68pt x 2055.68pt>
+<images/exp2_loop0_final.png, id=185, 2055.68pt x 2055.68pt>
 File: images/exp2_loop0_final.png Graphic file (type png)
 
 <use images/exp2_loop0_final.png>
@@ -1162,7 +1162,7 @@ Package pdftex.def Info: images/exp2_loop0_final.png used on input line 349.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/exp2_loop1_final.png, id=171, 2055.68pt x 2055.68pt>
+<images/exp2_loop1_final.png, id=186, 2055.68pt x 2055.68pt>
 File: images/exp2_loop1_final.png Graphic file (type png)
 
 <use images/exp2_loop1_final.png>
@@ -1181,85 +1181,121 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 359.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 364.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 364.
+
+Underfull \hbox (badness 10000) in paragraph at lines 365--367
+
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 371.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 371.
+
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+ []
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 373.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 373.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 373.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 373.
 [7]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 377.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 377.
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--380
+
+ []
+
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
- [8 <./images/tiny_live1.png> <./images/tiny_live2.png> <./images/tiny_live3.pn
+(babel)             in language  on input line 385.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 385.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 385.
+[8]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 385.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 385.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 385.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 385.
+ [9 <./images/tiny_live1.png> <./images/tiny_live2.png> <./images/tiny_live3.pn
 g>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
- [9 <./images/exp1_loop0_final.png (PNG copy)> <./images/exp1_loop1_final.png (
-PNG copy)>]
+(babel)             in language  on input line 385.
+ [10 <./images/exp1_loop0_final.png (PNG copy)> <./images/exp1_loop1_final.png 
+(PNG copy)>]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
- [10 <./images/exp2_loop0_final.png (PNG copy)> <./images/exp2_loop1_final.png 
+(babel)             in language  on input line 385.
+ [11 <./images/exp2_loop0_final.png (PNG copy)> <./images/exp2_loop1_final.png 
 (PNG copy)>]
 Kapitel 4.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 365.
+(babel)             in language  on input line 385.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 373.
+(babel)             in language  on input line 393.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 373.
+(babel)             in language  on input line 393.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 373.
+(babel)             in language  on input line 393.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 373.
-[11
+(babel)             in language  on input line 393.
+[12
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 376.
+(babel)             in language  on input line 396.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 376.
+(babel)             in language  on input line 396.
 
 No file slammer16.nls.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 410.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 410.
 No file slammer16.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 393.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 393.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
 (./slammer16.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 393.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 393.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 413.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
 Package rerunfilecheck Info: File `slammer16.out' has not changed.
-(rerunfilecheck)             Checksum: 2FD0FF92A92250E5B144BF10AEC208BB;822.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 393.
+(rerunfilecheck)             Checksum: 3C0E000C610EFA1D5E87A148AB2319CF;1058.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 413.
  ) 
 Here is how much of TeX's memory you used:
- 14253 strings out of 494968
- 220174 string characters out of 6178965
- 524070 words of memory out of 5000000
- 17105 multiletter control sequences out of 15000+600000
+ 14267 strings out of 494968
+ 220375 string characters out of 6178965
+ 524077 words of memory out of 5000000
+ 17115 multiletter control sequences out of 15000+600000
  48635 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  40i,12n,57p,1701b,1373s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1272,10 +1308,10 @@ onts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb
 e1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsso12.pfb><
 /usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt12.pfb>
-Output written on slammer16.pdf (16 pages, 3039901 bytes).
+Output written on slammer16.pdf (17 pages, 3045082 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
- 13982 words of extra memory for PDF output out of 14400 (max. 10000000)
+ 266 PDF objects out of 1000 (max. 8388607)
+ 221 compressed objects within 3 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 14006 words of extra memory for PDF output out of 14400 (max. 10000000)
 

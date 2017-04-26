@@ -357,15 +357,32 @@ Die Software lief im Gegensatz aller Erwartungen mit den andren Testdaten ohne F
 \section{MRPT}
 
 \section{Sonstige}
+In diesem Kapitel werden Framework / Software aufgelistet welche untersucht wurden, aufgrund von schlechter Dokumentation die Ergebnis nicht interpretiert, oder auf Grund veralteter Softwarekomponenten (teilweise nicht mehr existent) gar nicht erst zu einem fertigen Programm kompiliert werden konnten oder es kam zu unlösbaren Laufzeitfehlern.
 
+Das Grundlegende Problem dabei war, die Entscheidung zu treffen wie lange man sich nun beschäftigt das Problem zu lösen obgleich man sich absolut nicht sicher sein kann das dass Resultat wirklich für unser Vorhaben geeignet ist.
+ 
+\subsection{FALKOlib}
+FALKOlib (Fast Adaptive Laser Keypoint Orientation-invariant) ist eine Library, in der zwei neue \textit{Keypoint-Detectors} implementiert wurden.\\
+Später stellte sich zudem herraus dass die Software "lediglich" interessante Schlüsselpunkte herrausfindet. Eine lösung für SLAM-Problem ist nicht vorgesehen, es dient nur zur Erweiterung eines Roboters der für ein SLAM-Problem eingesetzt wird.\\
 
+\textbf{Grund des Ausschlusses:}\\
+Keine Lösung des gewünschten Problems, zudem nicht kompilierbar.
 
+\subsection{SLoM - Sparse Least Squares on Manifolds}
+Das SLoM - Framework wollten wir genauer untersuchen, da damit geworben wurde das verschiedene Datenformate(LIDAR,Bilder etc.), und damit vielleicht auch unterschiedliche Ausführungen von Entfernungsdaten verarbeitet werden können. Der Algorithmus löst das SLAM-Problem mittels \textit{Least Squares on Manifolds} - Methode.\\
+
+\textbf{Grund des Ausschlusses:}\\
+Nicht kompilierbar.
+
+\subsection{RFS-SLAM}
+RFS-SLAM ist ebenfalls ein komplettes Framework wo man eigene Modelle zu speziellen Problemen definieren kann. RFS-SLAM löst das SLAM-Problem mittels \textit{Random Finite Set} - Estimation.
+\\
+
+\textbf{Grund des Ausschlusses:}\\
+Laufzeitfehler.
 
 %============================================ Ausblick ============================================
 \chapter{Ausblick}
-
-
-
 
 
 
