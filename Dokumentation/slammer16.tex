@@ -125,10 +125,10 @@
   linkcolor=black, citecolor=black, urlcolor=blue, filecolor=blue,
   pdfpagelayout=OneColumn, pdfnewwindow=true,
   pdfstartview=XYZ, plainpages=false, pdfpagelabels,
-  pdfauthor={LyX Team}, pdftex,
-  pdftitle={LyX's Figure, Table, Floats, Notes, and Boxes manual},
-  pdfsubject={LyX-documentation about figures, tables, floats, notes, and boxes},
-  pdfkeywords={LyX, Tables, Figures, Floats, Boxes, Notes}]{hyperref}
+  pdfauthor={Kürten, Schilling}, pdftex,
+  pdftitle={SLAM - Simultaneous Localization and Mapping},
+  pdfsubject={SLAM - Simultaneous Localization and Mappings},
+  pdfkeywords={SLAM - Simultaneous Localization and Mapping}]{hyperref}
 
 %mehr Platz zwischen Überschrift und Tabelle
 \newcommand{\@ldtable}{}
@@ -297,7 +297,7 @@ Nach wenigen Schritten kann eine relative gute Positionsbestimmung trotz verraus
 
 %============================================ Datenformate ============================================
 \chapter{Datenformate}
-Es gibt verschiedene Möglichkeiten einen Roboter mittels Sensoren zu versehen. Unter anderem gibt es 2D-Laser, 3D-Laser oder auch stereo Kameras. Wir haben uns im Rahmen des Projektes nur mit 2D-Laser Daten auseinander gesetzt und stellen hier die gängigsten Datenformate vor. Für die Algorithmen haben wir ein eigenes Datenformat, abgeleitet von den bestehenden, benutzt. 
+Es gibt verschiedene Möglichkeiten einen Roboter mittels Sensoren zu versehen. Unter anderem gibt es 2D-Laser, 3D-Laser oder auch stereo Kameras. Wir haben uns im Rahmen des Projektes nur mit 2D-Laser Daten auseinander gesetzt und stellen hier das gängigste Datenformate vor. Für die Algorithmen haben wir ein eigenes Datenformat, abgeleitet von den bestehenden, benutzt. 
 
 \section{Eigenes Datenformat}
 Während unseren Experimenten haben wir festgestellt, dass viele Beispieldaten eine eigne Logik der Daten besitzen. Deshalb haben wir uns auf ein eigenes Datenformat geeinigt. Jede Zeile stellt einen Scandurchlauf dar. Die ersten drei Werte beschreiben die Odometrie: x-Wert, y-Wert und den Winkel Theta. Die vierte Zahl gibt die Anzahl der darauf folgenden Messwerte wieder. Eine Kommentarzeile wird durch eine \# eingeleitet. Abbildung \ref{eigenesDatenformat} zeigt einen Auszug einer Zeile aus einer Beispieldatei.
@@ -313,11 +313,36 @@ Während unseren Experimenten haben wir festgestellt, dass viele Beispieldaten ei
 
 \section{Beispieldaten}
 Einige Sensor Beispieldaten können von folgender Webseite heruntergeladen werden:  \url{http://www.mrpt.org/robotics_datasets}
+
+
+
 %============================================ Algorithmen ============================================
 \chapter{Algorithmen}
 Da es so schien als gäbe es eine große Auswahl bereits fertig implementiert und getestete  Algorithmen und Frameworks haben wir uns nach Absprache mit dem Betreuer dafür entschieden uns auf diese fertige Software zu beschränken. Ebenfalls haben wir uns auf Entfernungsdaten aus einem Laserscanner beschränkt, und etwaige Bildverarbeitung außen vor gelassen. Anschließen ist die Software aufgelistet bei denen wir die meisten Erfolge verbuchen konnten.
 
-\section{DPSlam}
+\section{DP-Slam}
+DP-Slam ist ein Algorithmus der von Austin Eliazar und Ronald Parr von der Duke University zur Verfügung gestellt wird. Das Programm liegt in der Programmiersprache C vor und akzeptiert als Eingangsdaten unbearbeitete 2D-Laser Daten sowie Odemetriewerte. Der Sourcecode kann unter folgender URL heruntergeladen werden: https://openslam.org/dpslam.html.\\
+DP-Slam basiert auf dem Partikel-Filter und nutzt die Verbundwahrscheinlichkeit zwischen Karte und Roboter Position aus.
+
+Wir konnten das Programm ohne Fehler kompilieren und haben uns zuerst die mitgelieferte Demo angeschaut. Wie oben beschrieben, wird bei dem Algorithmus eine Karte erstellt (siehe Abbildung \ref{dpslam_map1} und \ref{dpslam_map2}). Zur Erstellung der Karte kommt es nach einer bestimmten Anzahl von Iterationsschritten. Somit erhält man über die Zeit verschiedene Karten, die die abgescannte Gegend darstellen.
+
+\begin{figure}[h]
+	\includegraphics[scale=0.5]{images/hmap00.png}
+	\label{dpslam_map1}
+	\caption{Erste Karte nach erstem Durchlauf. Zu sehen ist ein Korridor.}
+\end{figure}
+\begin{figure}[h]
+	\includegraphics[scale=0.2]{images/hmap162.png}
+	\label{dpslam_map2}
+	\caption{Karte nach mehreren Durchläufen. Zu sehen ist der Grundriss einer ganzen Etage.}
+\end{figure}
+
+
+Als nächsten Schritt haben wir versucht, das Programm mit Input-Daten von Dritten ans laufen zu bekommen. Dazu wurde der Quellcode etwas verändert um die Daten einlesen zu können. Als Input-Daten wurden die Daten vom \textit{tinySLAM}-Algorithmus genommen. Dieser Schritt hat erstaunlich gut geklappt. Als Output erschienen die zu erwarteten Karten, die mit \textit{tinySLAM}-Algorithmus übereinstimmten.\\
+Wir haben die Verarbeitung der Laser-Daten weiter verändert, sodass der Algorithmus auch unser eigenes Datenformat einlesen konnte. Zum Testen haben wir weitere unbearbeitete Laser-Daten getestet.
+
+Alle bereits getesteten Datensätze beinhalten jeweils 181 Laserwerte pro Messung. Die nächste Herausforderung bestand darin, dass Programm soweit abzuändern, dass es nicht nur mit 181 Laser-Daten lief, sondern auch mit deutlich weniger Werten. Hierzu wurde an verschiedenen Stellen der Code abgeändert, jedoch endete es immer mit Speicherzugriffsfehlern. Nachdem man die ersten Speicherzugriffsfehler behoben hatte, taten sich immer wieder neue Speicherzugriffsfehler auf. Hier war der Arbeitsaufwand nicht abzuschätzen, ob die Behebung der Fehler nicht immer wieder neue Probleme hervorrief. Um das Problem zu umgehen wurde ein anderer Ansatz gewählt.\\
+Und zwar sollten die Reduzierung der Werte nicht dadurch geschehen, dass die Werte einfach wegfallen, sondern es sollte weiterhin mit 181 Werten gearbeitet werden. Jedoch sollten die Werte, die ignoriert werden sollten, mit einer ganz geringen oder ganz großen Distanz angegeben werden. Als kleinste Distanz konnte leider nicht Null gewählt werden, da der Algorithmus dies nicht akzeptierte. Leider war das Ergebnis nicht zufrierend stellend. Die kleinen Werte wurden leider als Hindernis interpretiert und die großen Werte waren an den Stellen wo eigentlich Hindernisse waren als fehlerhaft anzusehen. Eine mögliche Lösung wäre die Approximation des auszulassenden Wertes. Dieser könnte zum Beispiel der Mittelwert aus Vorgänger und Nachfolger sein. Dies wurde aber aus zeitlichen Gründen nicht mehr umgesetzt.   
 
 \section{tinySLAM}
 tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist, und die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter https://openslam.org/tinyslam.html.
