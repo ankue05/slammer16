@@ -139,7 +139,7 @@
                  \setlength{\belowcaptionskip}{\@tempdima} %
                  \@ldtable}
 
-%In dieser Arbeit wird auf die Nomenklatur als Abkürzungsverzeichnis verzichtet. Bei Wunsch wieder aktivieren.
+%In dieser Arbeit wird auf die Nomenklatur als Abkürzungs verzichtet. Bei Wunsch wieder aktivieren.
 %Nomenklatur als Abkürzungsverzeichnis verwenden
 %\renewcommand{\nomname}{Abkürzungsverzeichnis}
 %\renewcommand{\nomlabelwidth}{20mm}
@@ -231,11 +231,6 @@ Ziel des Projektes ist die Erstellung einer Umgebungskarte eines Roboters in ein
 \setcounter{page}{4}
 
 \listoffigures
-
-
-\newpage{}
-
-\listoftables
 
 
 \newpage{}
@@ -379,12 +374,18 @@ Die Software lief im Gegensatz aller Erwartungen mit den andren Testdaten ohne F
 	\caption{Komplette Karte nach zweitem Durchlauf des Roboters(neue Daten)}
 \end{figure}
 
-\section{MRPT}
 
 \section{Sonstige}
 In diesem Kapitel werden Framework / Software aufgelistet welche untersucht wurden, aufgrund von schlechter Dokumentation die Ergebnis nicht interpretiert, oder auf Grund veralteter Softwarekomponenten (teilweise nicht mehr existent) gar nicht erst zu einem fertigen Programm kompiliert werden konnten oder es kam zu unlösbaren Laufzeitfehlern.
 
 Das Grundlegende Problem dabei war, die Entscheidung zu treffen wie lange man sich nun beschäftigt das Problem zu lösen obgleich man sich absolut nicht sicher sein kann das dass Resultat wirklich für unser Vorhaben geeignet ist.
+ 
+ \subsection{MRPT}
+ MRPT steht für Mobile Robot Programming Toolkit und ist ein umfassendes Framework. Das Framework ist OpenSource und es stehen eine gute Dokumentation bzw. Tutorials auf deren Website zur Verfügung. Das Toolkit und die Dokumentation kann unter folgender URL eingesehen werden: http://www.mrpt.org/. \\
+ Von diesem Framework haben wir uns am Anfang viel versprochen, da es eine gute Dokumentation und einen großen Leistungsumfang vorweisen konnte. Für unser SLAM-Problem mit 2D-Laser Daten kommen zwei Algorithmen des Frameworks infrage: icp-slam und rbpf-slam. Die Algorithmen liefen, aber ohne grafische Oberfläche, was den Gebrauch und die Auswertung schwierig machte. 
+ 
+ \textbf{Grund des Ausschlusses:}\\
+ Nicht kompilierbar. Abhängigkeit zur alten Paketquellen, die nicht mehr existieren.
  
 \subsection{FALKOlib}
 FALKOlib (Fast Adaptive Laser Keypoint Orientation-invariant) ist eine Library, in der zwei neue \textit{Keypoint-Detectors} implementiert wurden.\\
@@ -406,9 +407,16 @@ RFS-SLAM ist ebenfalls ein komplettes Framework wo man eigene Modelle zu speziel
 \textbf{Grund des Ausschlusses:}\\
 Laufzeitfehler.
 
+\subsection{Linear SLAM}
+Linear SLAM ist ein Algorithmus für große Feature-Vektoren und Graphen. Der Algorithmus verwendet die Methode der kleinsten Quadrate. Als Eingabeparameter werden lokale Submaps akzeptiert.\\
+
+\textbf{Grund des Ausschlusses:}\\
+Eigenes Input- und Output-Material. Das Output-Material muss grafisch aufbereitet werden, da nur Koordinaten zurückgegeben werden.
+
 %============================================ Ausblick ============================================
 \chapter{Ausblick}
-
+Unsere Herangehensweise war es, existierende Algorithmen zu untersuchen und diese gegebenenfalls zu manipulieren. Somit haben wir viel Zeit investiert, die Algorithmen zu verstehen und die Test-Programme zu compilieren. Die Fehlersuche in den einzelnen Programmen war ebenfalls Zeit aufwendig.\\
+Deshalb würden wir als weiteres Vorgehen vorschlagen, einen einfachen SLAM-Algorithmus selbst zu implementieren. Dadurch lernt man die Funktionsweise des SLAM-Problems kennen und kann das Programm ohne weiteres seinen Anforderungen anpassen.
 
 
 % Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
