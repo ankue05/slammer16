@@ -316,7 +316,7 @@ Einige Sensor Beispieldaten können von folgender Webseite heruntergeladen werden
 Da es so schien als gäbe es eine große Auswahl bereits fertig implementiert und getestete  Algorithmen und Frameworks haben wir uns nach Absprache mit dem Betreuer dafür entschieden uns auf diese fertige Software zu beschränken. Ebenfalls haben wir uns auf Entfernungsdaten aus einem Laserscanner beschränkt, und etwaige Bildverarbeitung außen vor gelassen. Anschließen ist die Software aufgelistet bei denen wir die meisten Erfolge verbuchen konnten.
 
 \section{DP-Slam}
-DP-Slam ist ein Algorithmus der von Austin Eliazar und Ronald Parr von der Duke University zur Verfügung gestellt wird. Das Programm liegt in der Programmiersprache C vor und akzeptiert als Eingangsdaten unbearbeitete 2D-Laser Daten sowie Odemetriewerte. Der Sourcecode kann unter folgender URL heruntergeladen werden: https://openslam.org/dpslam.html.\\
+DP-Slam ist ein Algorithmus der von Austin Eliazar und Ronald Parr von der Duke University zur Verfügung gestellt wird. Das Programm liegt in der Programmiersprache C vor und akzeptiert als Eingangsdaten unbearbeitete 2D-Laser Daten sowie Odometriewerte. Der Sourcecode kann unter folgender URL heruntergeladen werden: https://openslam.org/dpslam.html.\\
 DP-Slam basiert auf dem Partikel-Filter und nutzt die Verbundwahrscheinlichkeit zwischen Karte und Roboter Position aus.
 
 Wir konnten das Programm ohne Fehler kompilieren und haben uns zuerst die mitgelieferte Demo angeschaut. Wie oben beschrieben, wird bei dem Algorithmus eine Karte erstellt (siehe Abbildung \ref{dpslam_map1} und \ref{dpslam_map2}). Zur Erstellung der Karte kommt es nach einer bestimmten Anzahl von Iterationsschritten. Somit erhält man über die Zeit verschiedene Karten, die die abgescannte Gegend darstellen.
@@ -340,11 +340,11 @@ Alle bereits getesteten Datensätze beinhalten jeweils 181 Laserwerte pro Messung
 Und zwar sollten die Reduzierung der Werte nicht dadurch geschehen, dass die Werte einfach wegfallen, sondern es sollte weiterhin mit 181 Werten gearbeitet werden. Jedoch sollten die Werte, die ignoriert werden sollten, mit einer ganz geringen oder ganz großen Distanz angegeben werden. Als kleinste Distanz konnte leider nicht Null gewählt werden, da der Algorithmus dies nicht akzeptierte. Leider war das Ergebnis nicht zufrierend stellend. Die kleinen Werte wurden leider als Hindernis interpretiert und die großen Werte waren an den Stellen wo eigentlich Hindernisse waren als fehlerhaft anzusehen. Eine mögliche Lösung wäre die Approximation des auszulassenden Wertes. Dieser könnte zum Beispiel der Mittelwert aus Vorgänger und Nachfolger sein. Dies wurde aber aus zeitlichen Gründen nicht mehr umgesetzt.   
 
 \section{tinySLAM}
-tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist, und die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter https://openslam.org/tinyslam.html.
+tinySLAM ist ein Open-Source Projekt der Wissenschaftler Bruno Steux und Oussama El Hamzaoui von der Mines ParisTech Universität. Entwicklet in weniger als 200 Zeilen C-Code und nur Laserdaten als Input. Diese Charakteristika erschien uns als Ideal da C gut auf andere Platformen zu portieren, hardwarenah und schnell ist. Ebenso weil die Anforderung sich auf Laserdaten zu beschränken ebenfalls erfüllt war. Beziehen kann man die Software unter \textit{https://openslam.org/tinyslam.html.}
 \\
-Nach der Kompilierung der Software versuchten wir als erstes das mitgelieferte Testprogramm mit den dazugehörigen Testdaten. Das Testprogramm lieferte erste vielversprechende Ergebnisse. Neben einer Animation (Abb. 3.1) zur Laufzeit, stellt es nach Abschluss auch fertige Karten des Raumes (Abb.3.2 / 3.3) zur Verfügung.
-In der \ref{tinyLive} kann man grafisch erkennen wie der Algorithmus arbeitet. Von seinem Startpunkt aus fährt er einmal im Kreis und erfasst alles soweit wie er kann. Im nächsten Durchlauf wird der Bereich untersucht wo potenziell keine Hindernisse erfasst wurden, und fährt erneut im Kreis.
-Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten Datensatz testen. Um das zu bewerkstelligen schauten wir uns zuerst die verwendeten Daten einmal an.\\ Dabei stellten wir fest das wir bis auf den ersten Wert einer jeden Zeile gar keinen Wert, den zuvor ausgemachten Werten (Odometrie, Winkel,Entfernungsdaten etc.) zuordnen konnten. Zudem ist die Anzahl der Werte pro Zeile auch stark erhöht und unterliegen teilweise sehr großen Schwankungen von \(2.4 \times 10^{-3}\) bis \(1.2 \times 10^{4}\). 
+Nach der Kompilierung der Software untersuchten wir als erstes das mitgelieferte Testprogramm mit den dazugehörigen Testdaten. Das Testprogramm lieferte erste vielversprechende Ergebnisse. Neben einer Animation (Abb. \ref{tinyLive}) zur Laufzeit, stellt es nach Abschluss auch fertige Karten des Raumes (Abb. \ref{tiny1} / \ref{tiny2}) zur Verfügung.
+In der Abbildung \ref{tinyLive} kann man grafisch erkennen wie der Algorithmus arbeitet. Von seinem Startpunkt aus fährt er einmal im Kreis und erfasst alles soweit wie er kann. Im nächsten Durchlauf wird der Bereich untersucht wo potenziell keine Hindernisse erfasst wurden, und fährt erneut im Kreis.
+Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten Datensatz testen. Um das zu bewerkstelligen schauten wir uns zuerst die verwendeten Daten einmal an.\\ Dabei stellten wir fest, dass wir bis auf den ersten Wert einer jeden Zeile gar keinen Wert, den zuvor ausgemachten Werten (Odometrie, Winkel, Entfernungsdaten etc.) zuordnen konnten. Zudem ist die Anzahl der Werte pro Zeile auch stark erhöht und unterliegen teilweise sehr großen Schwankungen von \(2.4 \times 10^{-3}\) bis \(1.2 \times 10^{4}\). 
 \begin{figure}[h]
 	\includegraphics[scale=0.34]{images/tiny_live1.png}
 	\includegraphics[scale=0.34]{images/tiny_live2.png}
@@ -352,37 +352,39 @@ Als nächsten Schritt wollten wir das Testprogramm mit einem von uns ausgesuchten
 	\caption{Bildausschnitte während der Roboteranimation zur Laufzeit}
 	\label{tinyLive}
 \end{figure}
-Ohne zusätzlich Informationen zu den verwendeten Testdaten war es uns nicht möglich diese zu deuten. Nichts desto trotz haben wir einfach einmal geschaut was denn passiert wenn wir die Software mit anderen Datensätze (Abb. 2.1) füttern.
-Die Software lief im Gegensatz aller Erwartungen mit den andren Testdaten ohne Fehlermeldungen durch. Allerdings ohne Animation zur Laufzeit und fehlerhaften Endresultaten, was schon erahnen lässt, das die Testdaten nicht mit der Software kompatibel ist. Es scheint auf den Bilder so, als würde sich der Roboter nicht von der Stelle bewegen. Nach genauerem Vergleich mit den neuen Testdaten und den Daten welche bei tinySLAM an Bord waren, fiel uns auf das keine Informationen zur Odometrie und Ausrichtung des Roboters in den Daten vorhanden war. Das fehlen dieser Information, lässt daraus schließen das diese Information aus den Daten zur Laufzeit berechnet werden. Da wir aber auch keine Information über die Ursprungsdaten haben, war es uns auch mit Hilfe des Quellcodes nicht möglich die Berechnung dieser Information nachzuvollziehen.
-
+Ohne zusätzlich Informationen zu den verwendeten Testdaten war es uns nicht möglich diese zu deuten. Nichts desto trotz haben wir einfach einmal geschaut wie sich das Programm verhält wenn wir die Software mit anderen Datensätze (Abb. \ref{eigenesDatenformat}) ausführen.
+Die Software lief im Gegensatz aller Erwartungen mit den andren Testdaten ohne Fehlermeldungen durch. Allerdings ohne Animation zur Laufzeit und fehlerhaften Endresultaten (Abb. \ref{tiny3} und \ref{tiny4}), was schon erahnen lässt, das die Testdaten nicht mit der Software kompatibel ist. Es scheint auf den Bilder so, als würde sich der Roboter nicht von der Stelle bewegen. Nach genauerem Vergleich mit den neuen Testdaten und den Daten welche bei tinySLAM an Bord waren, fiel uns auf das keine Informationen zur Odometrie und Ausrichtung des Roboters in den Daten vorhanden war. Das fehlen dieser Information, lässt darauf schließen dass diese Information aus den Daten zur Laufzeit berechnet werden. Da wir aber auch keine Information über die Ursprungsdaten haben, war es uns auch mit Hilfe des Quellcodes nicht möglich die Berechnung dieser Information nachzuvollziehen, und entschieden uns diesen Ansatz aufzugeben, da Einarbeitungszeit und mögliche Resultate nicht einzuschätzen waren.
 
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp1_loop0_final.png}
 	\caption{Erste Karte nach erstem Durchlauf des Roboters}
+	\label{tiny1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp1_loop1_final.png}
 		\caption{Komplette Karte nach zweitem Durchlauf des Roboters}
+		\label{tiny2}
 \end{figure}
 
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp2_loop0_final.png}
 	\caption{Erste Karte nach erstem Durchlauf des Roboters (neue Daten)}
+	\label{tiny3}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[scale=0.15]{images/exp2_loop1_final.png}
-	\caption{Komplette Karte nach zweitem Durchlauf des Roboters(neue Daten)}
+	\caption{Komplette Karte nach zweitem Durchlauf des Roboters (neue Daten)}
+	\label{tiny4}
 \end{figure}
 
-
 \section{Sonstige}
-In diesem Kapitel werden Framework / Software aufgelistet welche untersucht wurden, aufgrund von schlechter Dokumentation die Ergebnis nicht interpretiert, oder auf Grund veralteter Softwarekomponenten (teilweise nicht mehr existent) gar nicht erst zu einem fertigen Programm kompiliert werden konnten oder es kam zu unlösbaren Laufzeitfehlern.
+In diesem Kapitel werden Framework / Software aufgelistet welche untersucht wurden, aufgrund von schlechter Dokumentation die Ergebnis nicht interpretiert, oder auf Grund veralteter Softwarekomponenten (teilweise nicht mehr existent) gar nicht erst zu einem fertigen Programm kompiliert werden konnten. Zudem kam es auch zu unlösbaren Laufzeitfehlern.
 
-Das Grundlegende Problem dabei war, die Entscheidung zu treffen wie lange man sich nun beschäftigt das Problem zu lösen obgleich man sich absolut nicht sicher sein kann das dass Resultat wirklich für unser Vorhaben geeignet ist.
+Das Grundlegende Problem dabei war, die Entscheidung zu treffen wie lange man sich mit dem Problem und deren Lösung beschäftigt, obgleich man sich keineswegs sicher sein kann, das dass Resultat wirklich für unser Vorhaben geeignet ist.
  
  \subsection{MRPT}
  MRPT steht für Mobile Robot Programming Toolkit und ist ein umfassendes Framework. Das Framework ist OpenSource und es stehen eine gute Dokumentation bzw. Tutorials auf deren Website zur Verfügung. Das Toolkit und die Dokumentation kann unter folgender URL eingesehen werden: http://www.mrpt.org/. \\
- Von diesem Framework haben wir uns am Anfang viel versprochen, da es eine gute Dokumentation und einen großen Leistungsumfang vorweisen konnte. Für unser SLAM-Problem mit 2D-Laser Daten kommen zwei Algorithmen des Frameworks infrage: icp-slam und rbpf-slam. Die Algorithmen liefen, aber ohne grafische Oberfläche, was den Gebrauch und die Auswertung schwierig machte. 
+ Von diesem Framework haben wir uns am Anfang viel versprochen, da es eine gute Dokumentation und einen großen Leistungsumfang vorweisen konnte. Für unser SLAM-Problem mit 2D-Laser Daten kommen zwei Algorithmen des Frameworks infrage: icp-slam und rbpf-slam. Die Algorithmen liefen, aber ohne grafische Oberfläche, was den Gebrauch und die Auswertung schwierig machte.\\ 
  
  \textbf{Grund des Ausschlusses:}\\
  Nicht kompilierbar. Abhängigkeit zur alten Paketquellen, die nicht mehr existieren.
@@ -415,8 +417,8 @@ Eigenes Input- und Output-Material. Das Output-Material muss grafisch aufbereite
 
 %============================================ Ausblick ============================================
 \chapter{Ausblick}
-Unsere Herangehensweise war es, existierende Algorithmen zu untersuchen und diese gegebenenfalls zu manipulieren. Somit haben wir viel Zeit investiert, die Algorithmen zu verstehen und die Test-Programme zu compilieren. Die Fehlersuche in den einzelnen Programmen war ebenfalls Zeit aufwendig.\\
-Deshalb würden wir als weiteres Vorgehen vorschlagen, einen einfachen SLAM-Algorithmus selbst zu implementieren. Dadurch lernt man die Funktionsweise des SLAM-Problems kennen und kann das Programm ohne weiteres seinen Anforderungen anpassen.
+Unsere Herangehensweise war es, existierende Algorithmen zu untersuchen und diese gegebenenfalls zu manipulieren. Somit haben wir viel Zeit investiert, die Algorithmen zu verstehen und die Test-Programme zu kompilieren. Die Fehlersuche in den einzelnen Programmen war ebenfalls sehr Zeit aufwendig.Im Nachhinein würden wir dieses Vorgehen nicht empfehlen.\\
+Als weiteres Vorgehen würden wir vorschlagen, einen einfachen SLAM-Algorithmus selbst zu implementieren, und an echter Hardware zu Testen. Dadurch lernt man die Funktionsweise des SLAM-Problems kennen und kann das Programm ohne weiteres seinen Anforderungen anpassen.
 
 
 % Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
