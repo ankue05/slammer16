@@ -2,56 +2,65 @@ This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: slammer16.aux
 The style file: bibtex-daten/unsrtdin.bst
-I couldn't open database file bibtex-daten/bachelorarbeit-info.bib
----line 83 of file slammer16.aux
- : \bibdata{bibtex-daten/bachelorarbeit-info
- :                                          }
-I'm skipping whatever remains of this command
-I found no database files---while reading file slammer16.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 0 entries,
+Database file #1: bibtex-daten/slammer16.bib
+Warning--empty pages in DPSlam1
+Warning--empty booktitle in DPSlam2
+Warning--empty pages in DPSlam2
+Warning--empty number in LinearSlam2013
+Warning--empty note in LinearSlam2013
+Name 1 in "S. Riisgaard, and M. Blas." has a comma at the end for entry riisgaard2005dummies
+while executing---line 1887 of file bibtex-daten/unsrtdin.bst
+Name 1 in "S. Riisgaard, and M. Blas." has a comma at the end for entry riisgaard2005dummies
+while executing---line 1887 of file bibtex-daten/unsrtdin.bst
+Name 1 in "S. Riisgaard, and M. Blas." has a comma at the end for entry riisgaard2005dummies
+while executing---line 1887 of file bibtex-daten/unsrtdin.bst
+Warning--empty year in mrpt
+Warning--empty year in wikiMonteCarlo
+Warning--empty year in wikiSLAM
+You've used 8 entries,
             4011 wiz_defined-function locations,
-            775 strings with 5372 characters,
-and the built_in function-call counts, 34 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 2
-:= -- 10
-add.period$ -- 0
-call.type$ -- 0
+            814 strings with 6376 characters,
+and the built_in function-call counts, 1983 in all, are:
+= -- 183
+> -- 35
+< -- 71
++ -- 79
+- -- 11
+* -- 102
+:= -- 308
+add.period$ -- 6
+call.type$ -- 8
 change.case$ -- 0
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 16
+duplicate$ -- 66
+empty$ -- 191
+format.name$ -- 24
+if$ -- 420
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 10
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 9
+missing$ -- 20
+newline$ -- 49
+num.names$ -- 5
+pop$ -- 31
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1
+skip$ -- 128
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 69
+swap$ -- 14
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 7
-(There were 2 error messages)
+type$ -- 1
+warning$ -- 8
+while$ -- 13
+width$ -- 9
+write$ -- 98
+(There were 3 error messages)

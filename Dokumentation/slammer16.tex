@@ -258,7 +258,7 @@ Im Allgemeinen ist ein Bayes - Filter ein probabilistischer Ansatz um eine unbek
 In der Informatik und der Robotik ist ein Bayes - Filter ein Verfahren verschiedene, Wahrscheinlichkeiten für die Position und Orientierung eines Roboters zu berechnen, befolgt von einer Aktualisierung der wahrscheinlichsten Position innerhalb einer Karte. Im SLAM-Kontext wird zwischen Kalman- und Partikel - Filter unterschieden. 
 
 \subsection{Kalman Filter}
-Vereinfacht kann man sagen dass das Kalman - Filter die Störungen welche durch die Messgeräte verursacht werden entfernt. Das Filter bestimmt den aktuellen Systemzustand, rekursiv anhand der vorhergehenden gestörten Messungen. Für lineare Systeme kann man sich auf das Kalman - Filter beschränken. In der Realität sind die Systeme meist jedoch nichtlinear.Um dieses Problem dennoch in den Griff zu bekommen benutzt man den \textit{Extended - Kalman - Filter} (EKF) welcher auch für nichtlineare Systeme funktioniert.
+Vereinfacht kann man sagen, dass das Kalman - Filter die Störungen welche durch die Messgeräte verursacht werden entfernt. Das Filter bestimmt den aktuellen Systemzustand, rekursiv anhand der vorhergehenden gestörten Messungen. Für lineare Systeme kann man sich auf das Kalman - Filter beschränken. In der Realität sind die Systeme meist jedoch nichtlinear.Um dieses Problem dennoch in den Griff zu bekommen benutzt man den \textit{Extended - Kalman - Filter} (EKF) welcher auch für nichtlineare Systeme funktioniert.
 Das Filter besteht generell aus zwei Schritten:
 \begin{enumerate}
 	\item Vorhersagen
@@ -319,7 +319,7 @@ Da es so schien als gäbe es eine große Auswahl bereits fertig implementiert und 
 DP-Slam ist ein Algorithmus der von Austin Eliazar und Ronald Parr von der Duke University zur Verfügung gestellt wird. Das Programm liegt in der Programmiersprache C vor und akzeptiert als Eingangsdaten unbearbeitete 2D-Laser Daten sowie Odometriewerte. Der Sourcecode kann unter folgender URL heruntergeladen werden: https://openslam.org/dpslam.html.\\
 DP-Slam basiert auf dem Partikel-Filter und nutzt die Verbundwahrscheinlichkeit zwischen Karte und Roboter Position aus.
 
-Wir konnten das Programm ohne Fehler kompilieren und haben uns zuerst die mitgelieferte Demo angeschaut. Wie oben beschrieben, wird bei dem Algorithmus eine Karte erstellt (siehe Abbildung \ref{dpslam_map1} und \ref{dpslam_map2}). Zur Erstellung der Karte kommt es nach einer bestimmten Anzahl von Iterationsschritten. Somit erhält man über die Zeit verschiedene Karten, die die abgescannte Gegend darstellen.
+Wir konnten das Programm ohne Fehler kompilieren und haben uns zuerst die mitgelieferte Demo angeschaut. Wie oben beschrieben, wird bei dem Algorithmus eine Karte erstellt (siehe Abbildung 3.1 und 3.2). Zur Erstellung der Karte kommt es nach einer bestimmten Anzahl von Iterationsschritten. Somit erhält man über die Zeit verschiedene Karten, die die abgescannte Gegend darstellen.
 
 \begin{figure}[h]
 	\includegraphics[scale=0.5]{images/hmap00.png}
@@ -333,10 +333,10 @@ Wir konnten das Programm ohne Fehler kompilieren und haben uns zuerst die mitgel
 \end{figure}
 
 
-Als nächsten Schritt haben wir versucht, das Programm mit Input-Daten von Dritten ans laufen zu bekommen. Dazu wurde der Quellcode etwas verändert um die Daten einlesen zu können. Als Input-Daten wurden die Daten vom \textit{tinySLAM}-Algorithmus genommen. Dieser Schritt hat erstaunlich gut geklappt. Als Output erschienen die zu erwarteten Karten, die mit \textit{tinySLAM}-Algorithmus übereinstimmten.\\
+Als nächsten Schritt haben wir versucht, das Programm mit Input-Daten von Dritten ans Laufen zu bekommen. Dazu wurde der Quellcode etwas verändert um die Daten einlesen zu können. Als Input-Daten wurden die Daten vom \textit{tinySLAM}-Algorithmus genommen. Dieser Schritt hat erstaunlich gut geklappt. Als Output erschienen die zu erwarteten Karten, die mit dem \textit{tinySLAM}-Algorithmus übereinstimmten.\\
 Wir haben die Verarbeitung der Laser-Daten weiter verändert, sodass der Algorithmus auch unser eigenes Datenformat einlesen konnte. Zum Testen haben wir weitere unbearbeitete Laser-Daten getestet.
 
-Alle bereits getesteten Datensätze beinhalten jeweils 181 Laserwerte pro Messung. Die nächste Herausforderung bestand darin, dass Programm soweit abzuändern, dass es nicht nur mit 181 Laser-Daten lief, sondern auch mit deutlich weniger Werten. Hierzu wurde an verschiedenen Stellen der Code abgeändert, jedoch endete es immer mit Speicherzugriffsfehlern. Nachdem man die ersten Speicherzugriffsfehler behoben hatte, taten sich immer wieder neue Speicherzugriffsfehler auf. Hier war der Arbeitsaufwand nicht abzuschätzen, ob die Behebung der Fehler nicht immer wieder neue Probleme hervorrief. Um das Problem zu umgehen wurde ein anderer Ansatz gewählt.\\
+Alle bereits getesteten Datensätze beinhalten jeweils 181 Laserwerte pro Messung. Die nächste Herausforderung bestand darin, das Programm soweit abzuändern, dass es nicht nur mit 181 Laser-Daten lief, sondern auch mit deutlich weniger Werten. Hierzu wurde an verschiedenen Stellen der Code abgeändert, jedoch endete es immer mit Speicherzugriffsfehlern. Nachdem man die ersten Speicherzugriffsfehler behoben hatte, taten sich immer wieder neue Speicherzugriffsfehler auf. Hier war der Arbeitsaufwand nicht abzuschätzen, ob die Behebung der Fehler nicht immer wieder neue Probleme hervorrief. Um das Problem zu umgehen wurde ein anderer Ansatz gewählt.\\
 Und zwar sollten die Reduzierung der Werte nicht dadurch geschehen, dass die Werte einfach wegfallen, sondern es sollte weiterhin mit 181 Werten gearbeitet werden. Jedoch sollten die Werte, die ignoriert werden sollten, mit einer ganz geringen oder ganz großen Distanz angegeben werden. Als kleinste Distanz konnte leider nicht Null gewählt werden, da der Algorithmus dies nicht akzeptierte. Leider war das Ergebnis nicht zufrierend stellend. Die kleinen Werte wurden leider als Hindernis interpretiert und die großen Werte waren an den Stellen wo eigentlich Hindernisse waren als fehlerhaft anzusehen. Eine mögliche Lösung wäre die Approximation des auszulassenden Wertes. Dieser könnte zum Beispiel der Mittelwert aus Vorgänger und Nachfolger sein. Dies wurde aber aus zeitlichen Gründen nicht mehr umgesetzt.   
 
 \section{tinySLAM}
@@ -423,23 +423,11 @@ Als weiteres Vorgehen würden wir vorschlagen, einen einfachen SLAM-Algorithmus s
 
 % Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
 \clearpage
-\phantomsection
-% Die folgende Zeile sorgt dafuer, dass der Glossar im Inhaltsverzeichnis angezeigt wird.
-\addcontentsline{toc}{chapter}{Glossar}
-
-\nomenclature{APT}{Advanced Packaging Tool (kurz. APT) ist ein Paketverwaltungssystem das z.B. bei Debian und Ubuntu eingesetzt wird. Das Paketverwaltungssystem stellt einen Großteil der für das Betriebssystem verfügbaren Programme und Erweiterungen bereit. Diese können durch den Benutzer meist in der Befehlszeile oder über eine grafische Oberfläche installiert und konfiguriert werden. }\nomenclature{API}{Application Programming Interface (kurz API) ist eine Programmierschnittstelle die eine Anbindung von Außen an ein bestehendes System bietet. Die Schnittstelle wird vom Hersteller der Software zur Verfügung gestellt um Dritten die Möglichkeit eines Addons oder einer Erweiterung zu geben. Die Schnittstelle definiert dabei ein Standardformat und Standardbefehle.}
-
-\settowidth{\nomlabelwidth}{APT}
-\printnomenclature{}
-
-% Dieser Code ist noetig, da sonst die falsche Seitenzahl im Inhaltsverzeichnis angezeigt wird
-\clearpage
-\phantomsection
 
 
 
 \bibliographystyle{bibtex-daten/unsrtdin}
 \addcontentsline{toc}{chapter}{\bibname}\nocite{*}
-\bibliography{bibtex-daten/bachelorarbeit-info}
+\bibliography{bibtex-daten/slammer16}
 
 \end{document}
